@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="À propos | Enzo Petit" description="À propos d'Enzo Petit">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="À Propos"
+				tagline="Merci de vous être arrêté."
+				<br>
+				Découvrez mon parcours professionnel.
+				<img
+					width="300"
+					src="/assets/EnzoPetit1.jpg"
+					alt="Photo D'Enzo en noir et blanc"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p> De ma formation initiale en tant que technicien du son à mes dix années d'expérience dans l'animation socioculturelle, j'ai eu le privilège de partager ma passion pour le numérique avec les autres. Cependant, l'envie de créer et de contribuer de manière plus tangible à cet univers m'a finalement poussé à franchir le pas pour devenir développeur. C'est ainsi que j'ai entrepris ce voyage vers le monde du développement, où chaque projet est une nouvelle aventure et une nouvelle occasion de donner vie à mes idées. Je suis passionné par les défis que ce domaine offre et déterminé à continuer d'apprendre et de grandir en tant que développeur.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>BAC+2 Developpeur Web (RNCP), Titre professionnel responsable d'espace de médiation numérique, BPJEPS animation socioculturelle</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		position: relative;
+		left: 18%;
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		img {
+			position: relative;
+			left: 30%;
+		}
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+		
+	}
+</style>
