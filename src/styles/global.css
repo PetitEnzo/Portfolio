@@ -156,6 +156,10 @@ img {
   height: auto;
 }
 
+div.hero.stack.gap-4.start img {
+  display:none;
+}
+
 a {
   color: var(--link-color);
 }
