@@ -39,6 +39,13 @@ const { Content } = await entry.render();
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 							</div>
 							<p class="description">{entry.data.description}</p>
+							{entry.data.site_link && (
+								<div class="site-link">
+									<a href={entry.data.site_link} target="_blank" rel="noopener noreferrer" class="link-button">
+										Visiter le site <Icon icon="arrow-right" size="1.2em" />
+									</a>
+								</div>
+							)}
 						</div>
 					</Hero>
 				</div>
@@ -133,6 +140,28 @@ const { Content } = await entry.render();
 		text-decoration-color: currentColor;
 	}
 
+	.site-link {
+		margin-top: 1rem;
+	}
+
+	.link-button {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1.5rem;
+		background: linear-gradient(135deg, var(--accent-regular), var(--accent-dark));
+		color: white;
+		border-radius: 999px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: transform var(--theme-transition), box-shadow var(--theme-transition);
+	}
+
+	.link-button:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-md);
+	}
+
 	@media (min-width: 50em) {
 		.back-link {
 			display: block;
@@ -142,6 +171,11 @@ const { Content } = await entry.render();
 		.details {
 			flex-direction: row;
 			gap: 2.5rem;
+		}
+
+		.site-link {
+			margin-top: 0;
+			flex-shrink: 0;
 		}
 
 		.content :global(blockquote) {
