@@ -80,11 +80,13 @@ const { Content } = await entry.render();
 		flex-direction: column;
 		padding: 0.5rem;
 		gap: 1.5rem;
-		align-items: flex-start;
+		align-items: center;
 	}
 
 	.tags {
 		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 		gap: 0.5rem;
 	}
 
@@ -171,7 +173,12 @@ const { Content } = await entry.render();
 
 		.details {
 			flex-direction: column;
+			align-items: flex-start;
 			gap: 1.5rem;
+		}
+
+		.tags {
+			justify-content: flex-start;
 		}
 
 		.description-container {
